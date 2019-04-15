@@ -13,6 +13,7 @@
 		204F968E2260055700555ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 204F968D2260055700555ACC /* Assets.xcassets */; };
 		204F96912260055700555ACC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 204F968F2260055700555ACC /* LaunchScreen.storyboard */; };
 		204F96992260145F00555ACC /* EditPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204F96982260145F00555ACC /* EditPage.swift */; };
+		204F969B22640B8D00555ACC /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204F969A22640B8D00555ACC /* MemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		204F96902260055700555ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		204F96922260055700555ACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		204F96982260145F00555ACC /* EditPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPage.swift; sourceTree = "<group>"; };
+		204F969A22640B8D00555ACC /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				204F96862260055500555ACC /* AppDelegate.swift */,
 				204F96882260055500555ACC /* ViewController.swift */,
 				204F968A2260055500555ACC /* Main.storyboard */,
+				204F969A22640B8D00555ACC /* MemoCell.swift */,
 				204F96982260145F00555ACC /* EditPage.swift */,
 				204F968D2260055700555ACC /* Assets.xcassets */,
 				204F968F2260055700555ACC /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				204F96992260145F00555ACC /* EditPage.swift in Sources */,
 				204F96892260055500555ACC /* ViewController.swift in Sources */,
 				204F96872260055500555ACC /* AppDelegate.swift in Sources */,
+				204F969B22640B8D00555ACC /* MemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

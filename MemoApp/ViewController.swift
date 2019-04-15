@@ -8,13 +8,50 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+
+    var postArray: [String] = []
+
+    @IBOutlet weak var table: UITableView!
+
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! MemoCell
+        
+        cell.memoLabel.text = postArray[indexPath.row]
+        //cell.timeLabel.text = postArray[indexPath.row]
+
+        return cell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        table.frame = view.frame //テーブルを画面全体に表示
+        table.delegate = self //デリゲート指定
+        table.dataSource = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        readData() //viewが表示される直前に呼ばれる
+        print(postArray)
+    }
 
+    //UserDefaultsからデータを取得
+    func readData() {
+        let database = UserDefaults.standard
+
+        if let postArray = database.stringArray(forKey: "posts") {
+            self.postArray = postArray
+            //cellの更新
+            table.reloadData()
+
+        }
+    }
 }
 
