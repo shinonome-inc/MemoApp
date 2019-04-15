@@ -42,10 +42,13 @@ class EditPageViewContoroller: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         memorizeText()
+        print(postArray)
+        self.performSegue(withIdentifier: "toWebView", sender: postArray)
     }
     //保存ボタン
     @IBAction func saveButton(_ sender: Any) {
         memorizeText()
+        print(postArray)
     }
 
     //時刻表示関数
@@ -63,6 +66,13 @@ class EditPageViewContoroller: UIViewController {
         userDefaults.set(writtenText, forKey: "memo")
         view.endEditing(true)
         postArray.append(memoText.text)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWebView" {
+            let webView = segue.destination as! ViewController
+            webView.postArray = sender as! [String]
+        }
     }
 
     //キーボード閉じる

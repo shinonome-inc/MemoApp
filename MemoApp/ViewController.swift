@@ -14,8 +14,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     @IBOutlet weak var table: UITableView!
 
-
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
@@ -24,7 +22,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! MemoCell
         
         cell.memoLabel.text = postArray[indexPath.row]
-        //cell.timeLabel.text = postArray[indexPath.row]
+        //cell.timeLabel.text = postArray[indexPath.row]cc
 
         return cell
     }
