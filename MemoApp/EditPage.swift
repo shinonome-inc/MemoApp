@@ -40,15 +40,13 @@ class EditPageViewContoroller: UIViewController {
 
     //戻る（保存する）ボタン
     @IBAction func backButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         memorizeText()
-        print(postArray)
-        self.performSegue(withIdentifier: "toWebView", sender: postArray)
+        //self.performSegue(withIdentifier: "toWebView", sender: postArray)
+        self.dismiss(animated: true, completion: nil)
     }
     //保存ボタン
     @IBAction func saveButton(_ sender: Any) {
         memorizeText()
-        print(postArray)
     }
 
     //時刻表示関数
@@ -62,18 +60,18 @@ class EditPageViewContoroller: UIViewController {
 
     //保存処理
     func memorizeText() {
-        let writtenText = memoText.text! as NSString
+        let writtenText = [memoText.text!] as [String]
         userDefaults.set(writtenText, forKey: "memo")
         view.endEditing(true)
         postArray.append(memoText.text)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWebView" {
-            let webView = segue.destination as! ViewController
-            webView.postArray = sender as! [String]
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toWebView" {
+//            let webView = segue.destination as! ViewController
+//            webView.postArray = sender as! [String]
+//        }
+//    }
 
     //キーボード閉じる
     //self.memotext.resignFirstResponder()

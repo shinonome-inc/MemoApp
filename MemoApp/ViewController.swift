@@ -23,7 +23,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         cell.memoLabel.text = postArray[indexPath.row]
         //cell.timeLabel.text = postArray[indexPath.row]cc
-
         return cell
     }
 
@@ -36,19 +35,18 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        readData() //viewが表示される直前に呼ばれる
-        print(postArray)
+        readData()//viewが表示される直前に呼ばれる
+        print(self.postArray)
     }
-
+    
     //UserDefaultsからデータを取得
     func readData() {
         let database = UserDefaults.standard
-
-        if let postArray = database.stringArray(forKey: "posts") {
-            self.postArray = postArray
+        if let postArray = database.array (forKey: "memo") {
+            self.postArray = postArray as! [String]
+            print(self.postArray)
             //cellの更新
             table.reloadData()
-
         }
     }
 }
