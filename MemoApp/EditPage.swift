@@ -60,19 +60,16 @@ class EditPageViewContoroller: UIViewController {
 
     //保存処理
     func memorizeText() {
-        let writtenText = [memoText.text!] as [String]
-        userDefaults.set(writtenText, forKey: "memo")
-        view.endEditing(true)
+        if memoText.text == nil {
+        } else {
+        let database = UserDefaults.standard
+        if let Array = database.array (forKey: "memo") {
+            self.postArray = Array as! [String]
+            print(self.postArray)
+        }
         postArray.append(memoText.text)
+        userDefaults.set(postArray, forKey: "memo")
+        view.endEditing(true)
+        }
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toWebView" {
-//            let webView = segue.destination as! ViewController
-//            webView.postArray = sender as! [String]
-//        }
-//    }
-
-    //キーボード閉じる
-    //self.memotext.resignFirstResponder()
 }

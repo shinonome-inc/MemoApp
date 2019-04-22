@@ -42,12 +42,25 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //UserDefaultsからデータを取得
     func readData() {
         let database = UserDefaults.standard
-        if let postArray = database.array (forKey: "memo") {
-            self.postArray = postArray as! [String]
+        if let Array = database.array (forKey: "memo") {
+            self.postArray = Array as! [String]
             print(self.postArray)
             //cellの更新
             table.reloadData()
         }
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            postArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            let database = UserDefaults.standard
+            if let Array = database.array (forKey: "memo") {
+                self.postArray = Array as! [String]
+            }
+        }
+            tableView.reloadData()
+        }
 }
+
 
