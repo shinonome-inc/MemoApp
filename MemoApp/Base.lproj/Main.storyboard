@@ -69,7 +69,7 @@
                                 <items>
                                     <navigationItem title="全てのメモ" id="6Qv-Yz-Qdi">
                                         <barButtonItem key="leftBarButtonItem" title="Item" id="ElS-W4-PQC"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="Hbe-34-y75">
+                                        <barButtonItem key="rightBarButtonItem" title="追加" id="Hbe-34-y75">
                                             <connections>
                                                 <segue destination="XAA-yq-H57" kind="show" id="xfM-ui-PIq"/>
                                             </connections>
@@ -118,12 +118,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="メモの編集" id="pz8-w4-pAr">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="QTf-uZ-zfh">
+                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="QTf-uZ-zfh">
                                             <connections>
                                                 <action selector="backButton:" destination="XAA-yq-H57" id="4us-16-z89"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="XCK-4G-dbD">
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="XCK-4G-dbD">
                                             <connections>
                                                 <action selector="saveButton:" destination="XAA-yq-H57" id="0GB-o0-32C"/>
                                             </connections>
