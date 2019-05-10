@@ -36,18 +36,33 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         readData()//viewが表示される直前に呼ばれる
-        print(self.postArray)
+        //cellの更新
+        table.reloadData()
     }
     
     //UserDefaultsからデータを取得
     func readData() {
         let database = UserDefaults.standard
-        if let postArray = database.array (forKey: "memo") {
-            self.postArray = postArray as! [String]
-            print(self.postArray)
-            //cellの更新
-            table.reloadData()
+        if let Array = database.array (forKey: "memo") as? [String] {
+            self.postArray = (Array)
         }
     }
+
+    //削除アクション
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            postArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            let count = indexPath.row
+            //データ取得
+            readData()
+            //データ削除
+            postArray.remove(at: count)
+            //データ保存
+            UserDefaults.standard.set(postArray, forKey: "memo")
+        }
+        tableView.reloadData()
+    }
 }
+
 
