@@ -43,8 +43,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //UserDefaultsからデータを取得
     func readData() {
         let database = UserDefaults.standard
-        if let Array = database.array (forKey: "memo") {
-            self.postArray = Array as! [String]
+        if let Array = database.array (forKey: "memo") as? [String] {
+            self.postArray = (Array)
         }
     }
 
@@ -62,7 +62,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             UserDefaults.standard.set(postArray, forKey: "memo")
         }
         tableView.reloadData()
-        }
+    }
 }
 
 
