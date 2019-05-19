@@ -24,12 +24,15 @@ class EditPageViewContoroller: UIViewController {
     //保存変数
     let userDefaults = UserDefaults.standard
 
+    var textData = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //キーボード表示
         self.memoText.becomeFirstResponder()
         //時刻表示
         timeGet()
+        memoText.text = textData
     }
 
     //表示するメモを一番上から

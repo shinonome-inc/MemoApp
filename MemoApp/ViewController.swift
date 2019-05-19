@@ -14,16 +14,31 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     @IBOutlet weak var table: UITableView!
 
+    var selectedIndex: Int?
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoCell") as! MemoCell
-        
         cell.memoLabel.text = postArray[indexPath.row]
-        //cell.timeLabel.text = postArray[indexPath.row]cc
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        //ここに遷移処理を書く
+        performSegue(withIdentifier: "nextView", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = selectedIndex {
+            let next = segue.destination as? EditPageViewContoroller
+            next?.textData = postArray[indexPath]
+        }
     }
 
     override func viewDidLoad() {
@@ -31,6 +46,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         table.frame = view.frame //テーブルを画面全体に表示
         table.delegate = self //デリゲート指定
         table.dataSource = self
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
